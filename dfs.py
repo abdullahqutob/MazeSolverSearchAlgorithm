@@ -20,7 +20,7 @@ def dfs(maze):
     # Counter for the number of visited nodes
     visitedCounter = 0
 
-    # running dfs
+    # Running dfs
     while unvisited:
         current = unvisited.pop()
         # If the current node is unvisited -> mark it as visited and add its neighbors to the unvisited stack
@@ -46,11 +46,11 @@ def dfs(maze):
                                 # Storing previous node | key = neighbor, value = current
                                 parents[neighbor] = current
                 
-        # if current node is the exit -> return path
+        # If current node is the exit -> return path
         if current == end:
             result = []
 
-            # backtracks visited nodes and then reverses it to return path
+            # Backtracks visited nodes and then reverses it to return path
             while current != None:
                 result.append(current) # add to result list
                 current = parents[current] # reconstruct path
@@ -67,21 +67,19 @@ if __name__ == '__main__':
     
     mazeFile = input("Enter maze file path: ") # Get the maze file path from the user
     
-    maze = base.readMazeFile(mazeFile) # Read and process the maze fileF
+    maze = base.readMazeFile(mazeFile) # Read and process the maze file
     
     startTime = time.perf_counter() # Start timer
    
-    path, visitedCounter = dfs(maze) # Run bfs algorithm
+    path, visitedCounter = dfs(maze) # Run dfs algorithm
 
     endTime = time.perf_counter() # End timer
-
     
     elapsedTime = endTime - startTime # Time elapsed
 
     # Print the path 
     print('Path: \n' + str(path))
     print("Path movements: \n" + str(base.pathInLetters(path)))
-    
     
     # Print start and end points
     start, end = base.findStartEnd(maze)
