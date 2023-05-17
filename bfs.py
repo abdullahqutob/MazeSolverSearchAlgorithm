@@ -78,13 +78,11 @@ if __name__ == '__main__':
 
     endTime = time.perf_counter() # End timer
 
-    
     elapsedTime = endTime - startTime # Time elapsed
 
     # Print the path 
     print('Path: \n' + str(path))
     print("Path movements: \n" + str(base.pathInLetters(path)))
-    
     
     # Print start and end points
     start, end = base.findStartEnd(maze)
